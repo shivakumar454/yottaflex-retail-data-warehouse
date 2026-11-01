@@ -33,16 +33,7 @@ CREATE TABLE IF NOT EXISTS fact_sales (
     run_id VARCHAR NOT NULL,
 
     PRIMARY KEY (order_id, line_number),
-
-    FOREIGN KEY (customer_key)
-        REFERENCES dim_customer(customer_key),
-
-    FOREIGN KEY (product_key)
-        REFERENCES dim_product(product_key),
-
-    FOREIGN KEY (date_key)
-        REFERENCES dim_date(date_key),
-
+ 
     CHECK (quantity > 0),
     CHECK (unit_price >= 0),
     CHECK (sales_amount = quantity * unit_price)
